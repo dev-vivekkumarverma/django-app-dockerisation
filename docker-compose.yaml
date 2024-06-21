@@ -1,0 +1,24 @@
+version: '3.8'
+services:
+  say_current_time_web:
+    build: .
+    volumes:
+      - .:/app
+    ports:
+      - 8000:8000
+
+    environment:
+      - db_engine=${db_engine}
+      - db_host=${db_host}
+      - db_port=${db_port}
+      - db_user=${db_user}
+      - db_pass=${db_pass}
+      - db_name=${db_name}
+    
+    
+    networks:
+      - testnetwork
+
+networks:
+  testnetwork:
+    external: true
